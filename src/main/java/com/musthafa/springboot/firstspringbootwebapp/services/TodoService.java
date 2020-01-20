@@ -49,7 +49,13 @@ public class TodoService {
 	}
 
 	public void updateTodo(Todo todo) {
-		todos.remove(todo);
+		Iterator<Todo> iterator = todos.iterator();
+		while (iterator.hasNext()) {
+			Todo t = iterator.next();
+			if (t.getId() == todo.getId()) {
+				iterator.remove();
+			}
+		}
 		todos.add(todo);
 	}
 }

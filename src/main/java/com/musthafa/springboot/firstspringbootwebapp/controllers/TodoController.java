@@ -41,7 +41,7 @@ public class TodoController {
 		model.put("todos", service.retrieveTodos(name));
 		return "list-todos";
 	}
-	
+
 	@GetMapping("/add-todo")
 	public String showAddTodo(ModelMap model) {
 		model.addAttribute("todo", new Todo());
@@ -61,7 +61,7 @@ public class TodoController {
 		}
 		todo.setUser(getLoggedInUserName(model));
 		service.updateTodo(todo);
-		return "redirect:/list-todos";
+		return "redirect:/todo-list";
 	}
 
 	@PostMapping("/add-todo")
